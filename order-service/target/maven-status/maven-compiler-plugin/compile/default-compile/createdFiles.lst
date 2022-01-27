@@ -1,7 +1,0 @@
-com/zhuling/order/dto/OrderDto$OrderDtoBuilder.class
-com/zhuling/order/dto/OrderDto.class
-com/zhuling/order/controller/OrderController.class
-com/zhuling/order/service/ProductService.class
-com/zhuling/order/service/OrderService.class
-com/zhuling/order/service/OrderServiceImpl.class
-com/zhuling/order/OrderApplication.class

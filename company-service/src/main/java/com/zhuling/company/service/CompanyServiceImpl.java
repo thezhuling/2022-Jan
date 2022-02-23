@@ -41,7 +41,6 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Iterable<Company> findByLocationNear(Point point, Distance distance) {
-        log.info("you can do anything");
         log.info("经:{},纬:{},距离:{}", point.getX(), point.getY(), distance.getValue());
         return repository.findByLocationNear(point, distance);
     }

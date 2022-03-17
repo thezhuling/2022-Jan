@@ -13,7 +13,7 @@ spring:
     port: 6379
     database: 0
     password:
-    timeout: 10000
+    timeout: 100000
     jedis:
       pool:
         max-active: 1024
@@ -34,6 +34,14 @@ eureka:
 feign:
   httpclient:
     enabled: true
+
+#-------------------------message queue-------------------
+
+rocketmq:
+  name-server: 127.0.0.1:9876
+  producer:
+    group: test-group
+    send-message-timeout: 3000
 
 
 #-------------------------日志配置-------------------------

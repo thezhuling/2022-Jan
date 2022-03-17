@@ -1,10 +1,10 @@
 server:
-  port: 8082
+  port: 8083
   compression:
     enabled: true
 spring:
   application:
-    name: company-service
+    name: person-service
   cache:
     redis:
       time-to-live: 259200000
@@ -26,6 +26,12 @@ spring:
       maximum-pool-size: 50
       #minimum-idle: 50
       read-only: false
+  jpa:
+    database: MySQL
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
   redis:
     host: 39.96.38.111
     port: 6379
@@ -40,7 +46,7 @@ spring:
         min-idle: 5
 eureka:
   instance:
-    hostname: company-service
+    hostname: person-service
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:
@@ -53,7 +59,7 @@ feign:
 
 #-------------------------????-------------------------
 logging:
-  config: classpath:config/logback.xml
+  config: classpath:logback.xml
 logging.level.org.hibernate.SQL: DEBUG
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder: debug
 logging.level.org.apache.http: info

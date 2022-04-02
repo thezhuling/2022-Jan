@@ -1,0 +1,65 @@
+server:
+  port: 8084
+  compression:
+    enabled: true
+spring:
+  application:
+    name: person-service-slave
+  cache:
+    redis:
+      time-to-live: 259200000
+  datasource:
+    url: jdbc:mysql://39.96.38.111:3306/jan_test?useUnicode=true&characterEncoding=utf8&useSSL=false&zeroDateTimeBehavior=convertToNull&tinyInt1isBit=false
+    username: root
+    password: Rong710821
+    driverClassName: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      auto-commit: true
+      pool-name: HikariCP-Pool
+      connection-test-query: SELECT 1
+      connection-timeout: 60000
+      validation-timeout: 3000
+      idle-timeout: 60000
+      login-timeout: 5
+      max-lifetime: 60000
+      maximum-pool-size: 50
+      #minimum-idle: 50
+      read-only: false
+  jpa:
+    database: MySQL
+    show-sql: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+  redis:
+    host: 39.96.38.111
+    port: 6379
+    database: 0
+    password: Rong710821
+    timeout: 100000
+    jedis:
+      pool:
+        max-active: 1024
+        max-wait: -1
+        max-idle: 200
+        min-idle: 5
+eureka:
+  instance:
+    hostname: person-service-slave
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://root:1234@localhost:9090/eureka/,http://root:1234@localhost:9091/eureka/
+
+feign:
+  httpclient:
+    enabled: true
+
+#-------------------------????-------------------------
+logging:
+  config: classpath:logback.xml
+logging.level.org.hibernate.SQL: DEBUG
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder: debug
+logging.level.org.apache.http: info

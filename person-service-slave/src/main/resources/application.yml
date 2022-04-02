@@ -4,7 +4,7 @@ server:
     enabled: true
 spring:
   application:
-    name: person-service-slave
+    name: person-service
   cache:
     redis:
       time-to-live: 259200000
@@ -46,7 +46,7 @@ spring:
         min-idle: 5
 eureka:
   instance:
-    hostname: person-service-slave
+    hostname: person-service
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:

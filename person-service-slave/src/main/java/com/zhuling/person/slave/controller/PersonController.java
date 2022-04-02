@@ -1,4 +1,4 @@
-package com.zhuling.person.controller;
+package com.zhuling.person.slave.controller;
 
 import com.zhuling.repository.entities.GcPersonEntity;
 import lombok.extern.slf4j.Slf4j;
@@ -13,15 +13,9 @@ import java.util.List;
 @RequestMapping("person")
 @Slf4j
 public class PersonController {
-    @GetMapping("detail")
-    public String detail() {
-        System.out.println("789");
-        return "ok";
-    }
-
     @GetMapping("list/{companyId}")
     public List<GcPersonEntity> personListByCompanyId(@PathVariable("companyId") String companyId) {
-        log.info("###call person-service###");
-        return List.of(GcPersonEntity.builder().name("zs").build(), GcPersonEntity.builder().name("lisi").build());
+        log.info("###call person-service-slave222###");
+        return List.of(GcPersonEntity.builder().name("zl").build(), GcPersonEntity.builder().name("wq").build());
     }
 }

@@ -18,19 +18,16 @@
         <dependency>
             <groupId>com.zhuling</groupId>
             <artifactId>common</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.zhuling</groupId>
             <artifactId>model</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.zhuling</groupId>
             <artifactId>repository</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <dependency>
@@ -56,7 +53,6 @@
         <dependency>
             <groupId>com.redis.om</groupId>
             <artifactId>redis-om-spring</artifactId>
-            <version>0.3.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>

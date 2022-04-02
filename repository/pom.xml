@@ -19,7 +19,6 @@
         <dependency>
             <groupId>com.zhuling</groupId>
             <artifactId>common</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <dependency>
@@ -32,5 +31,4 @@
             <scope>runtime</scope>
         </dependency>
     </dependencies>
-
 </project>

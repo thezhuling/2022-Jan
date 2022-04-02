@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonController {
     @GetMapping("detail")
     public String detail() {
+        System.out.println("789");
         return "ok";
     }
 }

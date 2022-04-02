@@ -60,7 +60,8 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public List<Company> findByTags(Set<String> tags) {
-        return repository.findByTags(tags);
+//        return repository.findByTags(tags);
+        return null;
     }
 
 

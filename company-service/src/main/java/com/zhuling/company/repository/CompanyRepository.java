@@ -21,8 +21,8 @@ public interface CompanyRepository extends RedisDocumentRepository<Company, Stri
     Iterable<Company> findByLocationNear(Point point, Distance distance);
 
     // find by tag field, using JRediSearch "native" annotation
-    @Query("@tags:{$tags}")
-    List<Company> findByTags(@Param("tags") Set<String> tags);
+//    @Query("@tags:{$tags}")
+//    List<Company> findByTags(@Param("tags") Set<String> tags);
 
     // find by numeric property
     List<Company> findByNumberOfEmployees(int noe);

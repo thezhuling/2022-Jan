@@ -1,13 +1,10 @@
 package com.zhuling.order.controller;
 
-import com.alibaba.fastjson.JSON;
 import com.zhuling.model.dto.response.ProductDto;
 import com.zhuling.order.dto.OrderDto;
 import com.zhuling.order.service.OrderService;
-import com.zhuling.order.service.ProductService;
+import com.zhuling.order.component.feign.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.rocketmq.client.producer.SendResult;
-import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,8 +24,8 @@ public class OrderController {
     @Resource
     private ProductService productService;
 
-    @Resource
-    private RocketMQTemplate rocketMQTemplate;
+//    @Resource
+//    private RocketMQTemplate rocketMQTemplate;
 
 
     @GetMapping("products")
@@ -53,8 +50,9 @@ public class OrderController {
 
     @GetMapping("send-sms")
     public String sendSms() {
-        SendResult result = rocketMQTemplate.syncSend("operation-topic", "hello world");
-        log.info("发送结果：{}", JSON.toJSONString(result));
-        return JSON.toJSONString(result);
+//        SendResult result = rocketMQTemplate.syncSend("operation-topic", "hello world");
+//        log.info("发送结果：{}", JSON.toJSONString(result));
+//        return JSON.toJSONString(result);
+        return "ok";
     }
 }

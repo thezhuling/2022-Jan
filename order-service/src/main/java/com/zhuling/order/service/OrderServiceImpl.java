@@ -1,6 +1,7 @@
 package com.zhuling.order.service;
 
 import com.zhuling.model.dto.response.ProductDto;
+import com.zhuling.order.component.feign.service.ProductService;
 import com.zhuling.order.dto.OrderDto;
 import org.springframework.stereotype.Service;
 

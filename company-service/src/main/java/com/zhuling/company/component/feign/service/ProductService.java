@@ -1,4 +1,4 @@
-package com.zhuling.order.service;
+package com.zhuling.company.component.feign.service;
 
 import com.zhuling.model.dto.response.ProductDto;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @Component
-@FeignClient(value = "eureka-product-service")
+@FeignClient(value = "product-service")
 public interface ProductService {
     @GetMapping("/product/list")
     List<ProductDto> products();

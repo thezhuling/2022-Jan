@@ -15,13 +15,12 @@ import java.util.List;
 public class PersonController {
     @GetMapping("detail")
     public String detail() {
-        System.out.println("789");
         return "ok";
     }
 
     @GetMapping("list/{companyId}")
     public List<GcPersonEntity> personListByCompanyId(@PathVariable("companyId") String companyId) {
-        log.info("###call person-service###");
+        log.info("###call person-service###:{}", companyId);
         return List.of(GcPersonEntity.builder().name("zs").build(), GcPersonEntity.builder().name("lisi").build());
     }
 }

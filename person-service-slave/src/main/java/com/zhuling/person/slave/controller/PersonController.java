@@ -13,9 +13,14 @@ import java.util.List;
 @RequestMapping("person")
 @Slf4j
 public class PersonController {
+    @GetMapping("detail")
+    public String detail() {
+        return "ok";
+    }
+
     @GetMapping("list/{companyId}")
     public List<GcPersonEntity> personListByCompanyId(@PathVariable("companyId") String companyId) {
-        log.info("###call person-service-slave222###");
+        log.info("###call person-service-slave###:{}", companyId);
         return List.of(GcPersonEntity.builder().name("zl").build(), GcPersonEntity.builder().name("wq").build());
     }
 }

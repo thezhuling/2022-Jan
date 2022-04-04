@@ -139,4 +139,11 @@
         <appender-ref ref="all" />
         <appender-ref ref="console" />
     </logger>
+
+    <!-- 3. 输出feign调用日志 -->
+    <logger name="com.zhuling.person.component.feign.service" level="DEBUG" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="all" />
+        <appender-ref ref="console" />
+    </logger>
 </configuration>

@@ -1,10 +1,10 @@
 server:
-  port: 8084
+  port: 8001
   compression:
     enabled: true
 spring:
   application:
-    name: person-service
+    name: company-service
   cache:
     redis:
       time-to-live: 259200000
@@ -46,7 +46,7 @@ spring:
         min-idle: 5
 eureka:
   instance:
-    hostname: person-service
+    hostname: company-service
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:

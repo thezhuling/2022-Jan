@@ -32,7 +32,7 @@
     <properties>
         <sub-module.version>1.0-SNAPSHOT</sub-module.version>
         <java.version>11</java.version>
-        <redis.om.version>0.3.0-SNAPSHOT</redis.om.version>
+        <redis.om.version>0.3.1-SNAPSHOT</redis.om.version>
         <rocketmq.version>2.2.1</rocketmq.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>

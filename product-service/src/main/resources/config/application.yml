@@ -34,8 +34,7 @@ feign:
     enabled: true
 
 #-------------------------日志配置-------------------------
-logging:
-  config: classpath:config/logback.xml
-logging.level.org.hibernate.SQL: DEBUG
+logging.config: classpath:config/logback.xml
+logging.level.org.hibernate.SQL: debug
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder: debug
 logging.level.org.apache.http: info

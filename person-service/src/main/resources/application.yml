@@ -24,7 +24,7 @@ spring:
       login-timeout: 5
       max-lifetime: 60000
       maximum-pool-size: 50
-      #minimum-idle: 50
+      minimum-idle: 20
       read-only: false
   jpa:
     database: MySQL
@@ -58,8 +58,7 @@ feign:
     enabled: true
 
 #-------------------------????-------------------------
-logging:
-  config: classpath:logback.xml
-logging.level.org.hibernate.SQL: DEBUG
+logging.config: classpath:logback.xml
+logging.level.org.hibernate.SQL: debug
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder: debug
 logging.level.org.apache.http: info

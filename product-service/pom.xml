@@ -16,19 +16,10 @@
     <packaging>jar</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>com.zhuling</groupId>
-            <artifactId>common</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.zhuling</groupId>
             <artifactId>model</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.zhuling</groupId>
-            <artifactId>repository</artifactId>
         </dependency>
 
         <dependency>

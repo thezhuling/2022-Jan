@@ -59,8 +59,14 @@ feign:
   circuitbreaker:
     enabled: true
 
+
 #-------------------------????-------------------------
 logging.config: classpath:logback.xml
 logging.level.org.hibernate.SQL: debug
 logging.level.org.hibernate.type.descriptor.sql.BasicBinder: debug
 logging.level.org.apache.http: info
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'hystrix.stream'

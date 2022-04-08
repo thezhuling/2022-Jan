@@ -2,9 +2,29 @@ server:
   port: 9001
   compression:
     enabled: true
+
 spring:
   application:
     name: hystrix-dashboard
+
+eureka:
+  instance:
+    hostname: hystrix-dashboard
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://root:1234@localhost:9090/eureka/,http://root:1234@localhost:9091/eureka/
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: 'localhost'
+
+turbine:
+  app-config: person-service
+  cluster-name-expression: new String('default')
+  ## 开启主机+端口组合聚合服务，默认情况下turbine会将统一主机下的服务聚合成一个服务来统计
+  combine-host-port: true
 
 
 #-------------------------????-------------------------

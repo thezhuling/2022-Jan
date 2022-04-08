@@ -59,6 +59,12 @@ feign:
   circuitbreaker:
     enabled: true
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'hystrix.stream'
+
 #-------------------------????-------------------------
 logging.config: classpath:logback.xml
 logging.level.org.hibernate.SQL: debug

@@ -1,0 +1,14 @@
+server:
+  port: 9001
+  compression:
+    enabled: true
+spring:
+  application:
+    name: hystrix-dashboard
+
+
+#-------------------------????-------------------------
+logging.config: classpath:logback.xml
+logging.level.org.hibernate.SQL: debug
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder: debug
+logging.level.org.apache.http: info

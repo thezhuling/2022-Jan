@@ -56,6 +56,8 @@ eureka:
 feign:
   httpclient:
     enabled: true
+  circuitbreaker:
+    enabled: true
 
 #-------------------------????-------------------------
 logging.config: classpath:logback.xml

@@ -32,6 +32,7 @@
     <properties>
         <sub-module.version>1.0-SNAPSHOT</sub-module.version>
         <java.version>11</java.version>
+        <hystrix.version>2.2.10.RELEASE</hystrix.version>
         <redis.om.version>0.3.1-SNAPSHOT</redis.om.version>
         <rocketmq.version>2.2.1</rocketmq.version>
         <maven.compiler.source>11</maven.compiler.source>
@@ -108,6 +109,22 @@
                 <groupId>org.apache.rocketmq</groupId>
                 <artifactId>rocketmq-spring-boot-starter</artifactId>
                 <version>${rocketmq.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+                <version>${hystrix.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-starter</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-netflix-ribbon</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
 
             <dependency>

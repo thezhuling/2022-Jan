@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  compression:
+    enabled: true
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+eureka:
+  instance:
+    hostname: gateway-service
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://root:1234@localhost:9090/eureka/,http://root:1234@localhost:9091/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'hystrix.stream'
+
+#-------------------------????-------------------------
+logging.config: classpath:logback.xml
+logging.level.org.hibernate.SQL: debug
+logging.level.org.hibernate.type.descriptor.sql.BasicBinder: debug
+logging.level.org.apache.http: info

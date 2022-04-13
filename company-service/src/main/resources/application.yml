@@ -2,6 +2,8 @@ server:
   port: 8001
   compression:
     enabled: true
+  servlet:
+    context-path: "/company/api"
 spring:
   application:
     name: company-service
@@ -62,9 +64,11 @@ feign:
 
 #-------------------------????-------------------------
 logging.config: classpath:logback.xml
-logging.level.org.hibernate.SQL: debug
-logging.level.org.hibernate.type.descriptor.sql.BasicBinder: debug
-logging.level.org.apache.http: info
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: debug
+    org.apache.http: info
 management:
   endpoints:
     web:

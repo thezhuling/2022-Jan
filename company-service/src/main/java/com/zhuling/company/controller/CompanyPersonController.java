@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/company-person")
+@RequestMapping("company-person")
 @Slf4j
 public class CompanyPersonController {
     @Resource

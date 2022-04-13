@@ -1,7 +1,9 @@
 server:
-  port: 8080
+  port: 8002
   compression:
     enabled: true
+  servlet:
+    context-path: "/order/api"
 spring:
   application:
     name: order-service
@@ -72,6 +74,7 @@ feign:
 #-------------------------日志配置-------------------------
 logging:
   config: classpath:config/logback.xml
-logging.level.org.hibernate.SQL: debug
-logging.level.org.hibernate.type.descriptor.sql.BasicBinder: debug
-logging.level.org.apache.http: info
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: debug
+    org.apache.http: info

@@ -23,6 +23,7 @@ public class GatewayServiceApplication {
                 .route("company-service", r -> r.path("/company/api/**").uri("lb://company-service"))
                 .route("order-service", r -> r.path("/order/api/**").uri("lb://order-service"))
                 .route("product-service", r -> r.path("/product/api/**").uri("lb://product-service"))
+                .route("sign-service", r -> r.path("/sign/api/**").uri("lb://sign-service"))
                 .build();
     }
 }

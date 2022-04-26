@@ -27,6 +27,7 @@
         <module>product-service</module>
         <module>person-service</module>
         <module>person-service-slave</module>
+        <module>sign-service</module>
         <module>hystrix-dashboard</module>
         <module>gateway-service</module>
     </modules>

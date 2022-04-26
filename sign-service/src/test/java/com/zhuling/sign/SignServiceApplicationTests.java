@@ -1,16 +1,13 @@
-package com.zhuling.gatewayservice;
+package com.zhuling.sign;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.concurrent.LinkedBlockingQueue;
-
 @SpringBootTest
-class GatewayServiceApplicationTests {
+class SignServiceApplicationTests {
 
     @Test
     void contextLoads() {
     }
-
 
 }

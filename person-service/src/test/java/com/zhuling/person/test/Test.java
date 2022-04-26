@@ -1,8 +1,15 @@
 package com.zhuling.person.test;
 
+import javax.annotation.Resource;
+import javax.sql.DataSource;
 import java.io.File;
+import java.sql.*;
 
 public class Test {
+
+    @Resource
+    private DataSource dataSource;
+
     public static void main(String[] args) {
         File dir = new File("/Users/zhuling/projects/actionsoft/release/doccenter/com.actionsoft.apps.addons.invoice/invoicePDF/admin/c9c38bf1-7c30-0001-b4aa-72ad17cf35e0");
         String s = queryFileRealName(dir, "888_999.png");
@@ -29,5 +36,28 @@ public class Test {
             }
         }
         return null;
+    }
+
+
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
+    public boolean checkLogin() throws SQLException {
+        String user = "zs";
+        String pass = "1234";
+        String sql = " select count(*) from user where ";
+        sql += ("user='" + user + "' and pass = '" + pass + "'");
+        Connection connection = dataSource.getConnection();
+        Statement statement = connection.createStatement();
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        ResultSet resultSet = statement.executeQuery(sql);
+        if (resultSet.next()) {
+            int count = resultSet.getInt(0);
+            return count == 1;
+        }
+        connection.close();
+        return false;
     }
 }

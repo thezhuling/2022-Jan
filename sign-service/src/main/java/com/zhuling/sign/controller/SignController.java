@@ -1,6 +1,6 @@
 package com.zhuling.sign.controller;
 
-import com.zhuling.repository.entities.GcPersonEntity;
+import com.zhuling.repository.jan.entities.GcPersonEntity;
 import com.zhuling.sign.util.RocketMQTemplateUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -3,7 +3,7 @@ package com.zhuling.company.controller;
 import com.zhuling.company.component.feign.service.ProductService;
 import com.zhuling.company.service.CompanyPersonService;
 import com.zhuling.model.dto.response.ProductDto;
-import com.zhuling.repository.entities.GcPersonEntity;
+import com.zhuling.repository.jan.entities.GcPersonEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

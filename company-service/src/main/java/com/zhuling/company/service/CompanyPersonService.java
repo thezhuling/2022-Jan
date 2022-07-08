@@ -1,6 +1,6 @@
 package com.zhuling.company.service;
 
-import com.zhuling.repository.entities.GcPersonEntity;
+import com.zhuling.repository.jan.entities.GcPersonEntity;
 
 import java.util.List;
 

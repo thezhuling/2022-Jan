@@ -1,7 +1,7 @@
 package com.zhuling.company.component.feign.service;
 
 import com.zhuling.company.component.feign.fallback.CompanyPersonComponentFallBack;
-import com.zhuling.repository.entities.GcPersonEntity;
+import com.zhuling.repository.jan.entities.GcPersonEntity;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;

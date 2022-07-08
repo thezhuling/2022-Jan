@@ -1,6 +1,6 @@
 package com.zhuling.sign.message.subscription;
 
-import com.zhuling.repository.entities.GcPersonEntity;
+import com.zhuling.repository.jan.entities.GcPersonEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.rocketmq.spring.annotation.ConsumeMode;
 import org.apache.rocketmq.spring.annotation.MessageModel;

@@ -1,4 +1,4 @@
-package com.zhuling.repository.entities;
+package com.zhuling.repository.jan.entities;
 
 
 import com.zhuling.common.entity.AbstractEntity;

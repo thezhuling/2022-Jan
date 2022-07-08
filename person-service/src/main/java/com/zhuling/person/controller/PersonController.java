@@ -2,7 +2,8 @@ package com.zhuling.person.controller;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import com.zhuling.repository.entities.GcPersonEntity;
+import com.zhuling.person.service.PersonService;
+import com.zhuling.repository.jan.entities.GcPersonEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -18,6 +20,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Slf4j
 public class PersonController {
     private final static AtomicInteger count = new AtomicInteger(0);
+
+    @Resource
+    PersonService personService;
+
+    @GetMapping("list")
+    public ResponseEntity<?> list() {
+        return ResponseEntity.ok(personService.list());
+    }
 
     @GetMapping("detail")
     public String detail() {
@@ -69,15 +79,15 @@ public class PersonController {
     /**
      * 服务熔断
      */
-    @HystrixCommand(fallbackMethod = "serviceFuseFallBack",commandProperties = {
-            @HystrixProperty(name = "execution.isolation.strategy",value = "THREAD"),
-            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",value = "3000"),
-            @HystrixProperty(name = "execution.timeout.enabled",value = "true"),
-            @HystrixProperty(name = "execution.isolation.thread.interruptOnTimeout",value = "true"),
-            @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests",value = "10"),
-            @HystrixProperty(name = "fallback.enabled",value = "true"),
-            @HystrixProperty(name = "circuitBreaker.enabled",value = "true"),
-            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",value = "50")
+    @HystrixCommand(fallbackMethod = "serviceFuseFallBack", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.strategy", value = "THREAD"),
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "3000"),
+            @HystrixProperty(name = "execution.timeout.enabled", value = "true"),
+            @HystrixProperty(name = "execution.isolation.thread.interruptOnTimeout", value = "true"),
+            @HystrixProperty(name = "execution.isolation.semaphore.maxConcurrentRequests", value = "10"),
+            @HystrixProperty(name = "fallback.enabled", value = "true"),
+            @HystrixProperty(name = "circuitBreaker.enabled", value = "true"),
+            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "50")
     })
     @GetMapping("service-fuse/{id}")
     public String serviceFuse(@PathVariable("id") Integer id) {
@@ -87,8 +97,14 @@ public class PersonController {
         return "ok";
     }
 
-    public String serviceFuseFallBack(@PathVariable("id") Integer id,Throwable throwable) {
-        log.info("id小于0,系统服务异常：{}",throwable.getMessage());
+    public String serviceFuseFallBack(@PathVariable("id") Integer id, Throwable throwable) {
+        log.info("id小于0,系统服务异常：{}", throwable.getMessage());
         return "ok";
+    }
+
+    @GetMapping("atomic")
+    public ResponseEntity<?> atomicGetAndSet() {
+        log.info("request-time:{}", count.getAndIncrement());
+        return ResponseEntity.ok("success");
     }
 }

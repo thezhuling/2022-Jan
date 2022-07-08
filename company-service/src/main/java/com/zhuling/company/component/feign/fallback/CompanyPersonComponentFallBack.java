@@ -1,7 +1,7 @@
 package com.zhuling.company.component.feign.fallback;
 
 import com.zhuling.company.component.feign.service.CompanyPersonComponent;
-import com.zhuling.repository.entities.GcPersonEntity;
+import com.zhuling.repository.jan.entities.GcPersonEntity;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
